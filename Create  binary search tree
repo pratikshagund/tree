@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node* l;
+    struct node* r;
+    node(int val)
+    {
+        data=val;
+        l=r=NULL;
+    }
+};
+
+node* Insert(node* root, int data)
+{
+    if(root==NULL)
+    {
+        root = new node(data);
+    }
+    else if(root->data >= data)
+    {
+        root->l = Insert(root->l, data);
+    }
+    else if(root->data < data)
+    {
+        root->r = Insert(root->r, data);
+    }
+    return root;
+}
+
+void Inorder(node* root)
+{
+    if(root == NULL)
+    {
+        return;
+    }
+    Inorder(root->l);
+    cout<<root->data<<" ";
+    Inorder(root->r);
+}
+
+
+int main()
+{
+    node* root = NULL;
+    int count;
+    cin>>count;
+    while(count--)
+    {
+       int num;
+       cin>>num;
+       root = Insert(root, num);
+    }
+    Inorder(root);
+    return 0;
+}
