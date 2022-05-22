@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+struct Node
+{
+  int val;
+  Node* l;
+  Node* r;
+  Node(int data)
+  {
+      val=data;
+      l=NULL;
+      r=NULL;
+  }
+};
+
+Node* insert()
+{
+    int d;
+    cin>>d;
+    if(d==-1)
+    {
+        return NULL;
+    }
+    Node* root = new Node(d);
+    root->l = insert();
+    root->r = insert();
+}
+
+int main() {
+	Node* root = insert();
+	return 0;
+}
