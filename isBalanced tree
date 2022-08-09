@@ -12,3 +12,7 @@ int isBalanced(node* root)
     
     return 1 + max(rh,lh);
 }
+
+===========================================
+TC = 0(N)
+SC = 0(N)
