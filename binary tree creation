@@ -25,9 +25,27 @@ Node* insert()
     Node* root = new Node(d);
     root->l = insert();
     root->r = insert();
+    return root;
 }
+
+void inorder(Node* root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    inorder(root->l);
+    cout<<root->val<<" ";
+    inorder(root->r);
+}
+
 
 int main() {
 	Node* root = insert();
+	inorder(root);
 	return 0;
 }
+
+
+o/p = 1 2 3 -1 4 -1 -1 -1 5 -1 -1
+==>   3 4 2 1 5
